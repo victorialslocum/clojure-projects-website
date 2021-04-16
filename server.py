@@ -18,16 +18,28 @@ def hello_world():
 
     codeStuff = []
 
-    for subFolder in os.listdir('code/'):
-        if os.path.isdir(os.path.join('code/', subFolder)):
-            # subFolder is the directory name
-            # find the files for the subfolder and load into tempfiles
+
+    # 1. go through subfolders
+    # ......
+    # FOUND ONE! ALGORITHMS
+    # ok so whats in algoritms
+    # caskdjl.clj, sadsad.clj
+    # let's add those to a list for the "algorithms" folder!
+    # FOUND ONE! Language
+    # ok so whats in algoritms
+    # caskdj2l.clj, sa2dsad.clj
+    # let's add those to a list for the "language" folder!
+
+    for tempSubFolder in os.listdir('code/'):
+        if os.path.isdir(os.path.join('code/', tempSubFolder)):
+            # tempSubFolder is the directory name
+            # find the files for the tempSubFolder and load into tempfiles
             tempFiles = []
-            for file in os.listdir("code/" + subFolder + "/"):
+            for file in os.listdir("code/" + tempSubFolder + "/"):
                 tempFiles.append(file)
             
             # add a dictionary of the folder name and the files into codeStuff
-            codeStuff.append({"dirName": subFolder, "files": tempFiles})
+            codeStuff.append({"dirName": tempSubFolder, "files": tempFiles})
             
     return render_template('render-files.html', files=codeStuff)
 

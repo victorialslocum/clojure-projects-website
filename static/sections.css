@@ -1,50 +1,18 @@
 div.container {
   display: grid;
-
   grid-template-areas: "sidebar content";
-
   grid-template-columns: 20% auto;
   min-height: 90vh;
 }
 
 section.content {
   display: grid;
-
   grid-template-rows: 70vh auto;
-
-  /* max-height: 90vh; */
 }
 
 section.sidebar {
   background-color: #db240f;
-  /* height: 100%; */
   grid-area: sidebar;
-}
-
-div.page {
-  font-family: sans-serif;
-  color: white;
-  padding: 10px;
-  font-size: 19px;
-}
-
-div.page.selected {
-  background-color: white;
-  color: #db240f;
-  font-weight: bold;
-}
-
-section.sidebar h2 {
-  font-family: sans-serif;
-  color: white;
-  font-size: 25px;
-  border-bottom: 1.3px solid;
-  padding-bottom: 15px;
-  padding-left: 10px;
-}
-
-div.page:hover {
-  font-weight: bold;
 }
 
 .CodeMirror {
@@ -72,6 +40,7 @@ li.header {
   font-family: sans-serif;
   color: white;
   font-size: 25px;
+  font-weight: 4px;
   border-bottom: 1.3px solid;
   padding-bottom: 15px;
   padding-left: 10px;
@@ -96,8 +65,4 @@ li.page.selected {
 
 li.page:hover {
   font-weight: bold;
-}
-
-ul.sidebar-nav {
-  list-style-type: none;
 }

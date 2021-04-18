@@ -39,7 +39,7 @@ def hello_world():
                 tempFiles.append(file)
             
             # add a dictionary of the folder name and the files into codeStuff
-            codeStuff.append({"dirName": tempSubFolder, "files": tempFiles})
+            codeStuff.append({"dirName": tempSubFolder, "files": tempFiles}) #Victoria question: Why does it not work when you take out the "" parts?
             
     return render_template('render-files.html', files=codeStuff)
 

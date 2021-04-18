@@ -67,3 +67,20 @@ div.page:hover {
 .klipse-separator {
   display: none;
 }
+
+li.header {
+  font-family: sans-serif;
+  color: white;
+  font-size: 25px;
+  border-bottom: 1.3px solid;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  text-decoration: none;
+}
+
+li.page {
+  font-family: sans-serif;
+  color: white;
+  padding: 10px;
+  font-size: 19px;
+}

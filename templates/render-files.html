@@ -65,8 +65,28 @@
         </ul>
       </nav>
     </header>
-
     <div class="container">
+      <section class="sidebar">
+        <ul id="sidebar-nav">
+          <!-- {{files}} -->
+          {% for value in files %}
+          <li class="header">
+            <a>{{ value["dirName"] }}</a></li>
+          {% for item in value.files %}
+          <li class="item"> 
+            <a>{{ item }}</a></li>
+          {% endfor %}
+          {% endfor %}
+          <!-- {% for item in files %}
+          <li><a {{ item.dirName }}></a></li>
+          {% endfor %} -->
+        </ul>
+
+        <h2>test</h2>
+        <!-- {{ a_variable }} -->
+      </section>
+    </div>
+    <!-- <div class="container">
       <section class="sidebar">
         <h2>Chapter 1</h2>
         <div class="page">item 1</div>
@@ -79,7 +99,7 @@
         <h2>Select a project</h2>
         <div class="page">item 1</div>
         <div class="page">item 1</div>
-        <h2>Select a project</h2>
+        <h2>Select a project</h2> -->
       </section>
       <section class="content">
         <code class="language-klipse">(map inc [1 2 3]) </code>

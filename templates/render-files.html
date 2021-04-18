@@ -68,18 +68,14 @@
     <div class="container">
       <section class="sidebar">
         <ul id="sidebar-nav">
-          <!-- {{files}} -->
           {% for value in files %}
           <li class="header">
             <a>{{ value["dirName"] }}</a></li>
           {% for item in value.files %}
-          <li class="item"> 
+          <li class="page"> 
             <a>{{ item }}</a></li>
           {% endfor %}
           {% endfor %}
-          <!-- {% for item in files %}
-          <li><a {{ item.dirName }}></a></li>
-          {% endfor %} -->
         </ul>
 
         <h2>test</h2>

@@ -75,6 +75,7 @@ li.header {
   border-bottom: 1.3px solid;
   padding-bottom: 15px;
   padding-left: 10px;
+  list-style-type: none;
   text-decoration: none;
 }
 
@@ -83,4 +84,20 @@ li.page {
   color: white;
   padding: 10px;
   font-size: 19px;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+li.page.selected {
+  background-color: white;
+  color: #db240f;
+  font-weight: bold;
+}
+
+li.page:hover {
+  font-weight: bold;
+}
+
+ul.sidebar-nav {
+  list-style-type: none;
 }

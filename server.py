@@ -3,8 +3,6 @@
 # export FLASK_ENV=development
 # flask run
 
-# todo: 
-
 # todo: see if we can make these into one line of code
 from flask import Flask
 from flask import render_template
@@ -26,12 +24,10 @@ def renderIDE(folderName, fileName):
                 tempFiles.append(file)
             
             # add a dictionary of the folder name and the files into codeStuff
-            codeStuff.append({"dirName": tempSubFolder, "files": tempFiles}) #Victoria question: Why does it not work when you take out the "" parts?
+            codeStuff.append({"dirName": tempSubFolder, "files": tempFiles})
     
     with open('code/'+ folderName.capitalize() + '/' + fileName) as file:
         fileContent = file.read()
-
-    # link = "http://127.0.0.1:5000/" + folderName + "/" + fileName
 
     return render_template('render-files.html', files=codeStuff, folderName=folderName, fileName=fileName, fileContent=fileContent)
 

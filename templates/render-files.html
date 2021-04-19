@@ -49,7 +49,7 @@
   </head>
   <body>
     <header>
-      <h1>Victoria's projects {{ links }}</h1>
+      <h1>Victoria's projects</h1>
       <nav>
         <ul class="nav-menu">
           <li>
@@ -79,14 +79,17 @@
             <a>{{ value["dirName"] }}</a>
           </li>
           {% for item in value.files %}
-          <li class="page">
-            <a>{{ item }}</a>
+          {% set link = 'http://127.0.0.1:5000/' + value.dirName + '/' + item %}
+          <li  {% if item == fileName %} class="page selected" {% else %} class="page" {% endif %}>
+            <a href= "{{ link }}"
+              >{{ item }}</a
+            >
           </li>
           {% endfor %} {% endfor %}
         </ul>
       </section>
       <section class="content">
-        <code class="language-klipse">(map inc [1 2 3]) </code>
+        <code class="language-klipse"> {{ fileContent }}</code>
       </section>
     </div>
     <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>

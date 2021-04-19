@@ -55,12 +55,11 @@ li.page {
   padding: 10px;
   font-size: 19px;
   list-style-type: none;
-  margin-left: -25px;
+  margin-left: -40px;
   padding: 15px;
-  padding-left: 10px;
 }
 
-li.page.selected {
+li.selected {
   background-color: white;
   color: #db240f;
   font-weight: bold;
@@ -68,4 +67,9 @@ li.page.selected {
 
 li.page:hover {
   font-weight: bold;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
 }

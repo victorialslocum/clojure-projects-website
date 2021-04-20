@@ -11,6 +11,7 @@ import os
 
 app = Flask(__name__)
 
+
 def renderIDE(folderName, fileName):
 
     codeStuff = []
@@ -33,7 +34,21 @@ def renderIDE(folderName, fileName):
 
 @app.route('/')
 def home():
-    return renderIDE("Algorithms", "program1.clj")
+
+    codeStuff = []
+
+    for tempSubFolder in os.listdir('code/'):
+        if os.path.isdir(os.path.join('code/', tempSubFolder)):
+            # tempSubFolder is the directory name
+            # find the files for the tempSubFolder and load into tempfiles
+            tempFiles = []
+            for file in os.listdir("code/" + tempSubFolder + "/"):
+                tempFiles.append(file)
+            
+            # add a dictionary of the folder name and the files into codeStuff
+            codeStuff.append({"dirName": tempSubFolder, "files": tempFiles})
+
+    return render_template("home.html", files=codeStuff)
 
 @app.route('/<folder>/<file>')
 def specificProject(folder=None, file=None):

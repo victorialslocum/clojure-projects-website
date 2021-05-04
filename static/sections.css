@@ -35,7 +35,7 @@ section.content img {
 }
 
 section.sidebar {
-  background-color: #db240f;
+  background-color: #85c9e8;
   grid-area: sidebar;
 }
 
@@ -45,14 +45,6 @@ section.sidebar {
 
 .CodeMirror-scroll {
   font-size: 22px;
-}
-
-.klipse-snippet {
-  background: orange;
-}
-
-.klipse-result {
-  background: blue;
 }
 
 .klipse-container,
@@ -85,7 +77,7 @@ li.page {
 
 li.selected {
   background-color: white;
-  color: #db240f;
+  color: #85c9e8;
   font-weight: bold;
 }
 

@@ -3,7 +3,7 @@ body {
 }
 
 header {
-  background: black;
+  background: #1d1d1b;
   color: #fff;
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@ header h1 {
 
 header h1::selection {
   background: white;
-  color: #db240f;
+  color: #85c9e8;
   display: block;
 }
 
@@ -44,7 +44,7 @@ header nav ul li {
 }
 
 header nav ul li a {
-  background: #db240f;
+  background: #85c9e8;
   color: #fff;
   padding: 3px;
   text-decoration: none;
@@ -54,7 +54,7 @@ header nav ul li a {
 
 header nav ul li a:hover {
   background: #fff;
-  color: #db240f;
+  color: #85c9e8;
   padding: 3px;
   text-decoration: none;
 }

@@ -21,6 +21,7 @@ header h1 {
   margin: 0px;
   font-family: sans-serif;
   padding: 4px;
+  font-size: 45px;
 }
 
 header h1::selection {
@@ -39,22 +40,23 @@ header nav {
 
 header nav ul li {
   display: inline;
-  padding-left: 3px;
-  padding-right: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 header nav ul li a {
   background: #85c9e8;
   color: #fff;
-  padding: 3px;
+  padding: 7px;
   text-decoration: none;
   transition: 300ms;
-  font-size: 19px;
+  font-size: 25px;
+  border-radius: 10px;
 }
 
 header nav ul li a:hover {
   background: #fff;
   color: #85c9e8;
-  padding: 3px;
+  padding: 7px;
   text-decoration: none;
 }

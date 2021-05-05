@@ -54,7 +54,7 @@
         <ul class="nav-menu">
           <li>
             <a
-              href="http://127.0.0.1:5000/"
+              href="/"
               alt="home"
               >home</a
             >
@@ -86,7 +86,7 @@
             <a>{{ value["dirName"] }}</a>
           </li>
           {% for item in value.files %}
-          {% set link = 'http://127.0.0.1:5000/' + value.dirName + '/' + item %}
+          {% set link = '/' + value.dirName + '/' + item %}
           <li  {% if item == fileName %} class="page selected" {% else %} class="page" {% endif %}>
             <a href= "{{ link }}"
               >{{ item }}</a

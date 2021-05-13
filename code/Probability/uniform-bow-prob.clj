@@ -4,6 +4,7 @@
 ;; the uniform distribution, which has the same counts, so will 
 ;; be the same for every three letter sentence. 
 
+(ns hi.test)
 
 (def moby-word-tokens '(CALL me Ishmael . Some years ago never mind
                              how long precisely having little or no money in my purse , and

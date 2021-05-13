@@ -1,3 +1,13 @@
+;; Create a b^n a^n string
+(defn sequence-to-power [x n]
+  (if (= n 0)
+    '()
+    (concat x (sequence-to-power x (- n 1)))))
+
+(defn generate-bn-an [k]
+  (concat (sequence-to-power '(b) k) (sequence-to-power '(a) k)))
+
+;; determine if a string is b^n a^n 
 (defn remove-last-element [l]
   (reverse (rest (reverse l))))
 
@@ -14,4 +24,5 @@
           (recognize-bn-an (rest (remove-last-element str)))
           false)))))
 
-(recognize-bn-an (list 'b 'b 'a 'a))
+(println (generate-bn-an 2))
+(println (recognize-bn-an (list 'b 'b 'a 'a)))

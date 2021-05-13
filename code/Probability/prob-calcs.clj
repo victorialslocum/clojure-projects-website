@@ -9,7 +9,6 @@
 (def my-corpus '((call me)
                  (call ishmael)))
 
-
 (defn score-categorical [outcome outcomes params]
   (if (empty? params)
     (/ 1 0)
@@ -49,30 +48,29 @@
                (map (fn [z] (Math/pow 2 z))
                     (map (fn [x] (- x mx)) log-vals)))))))
 
-;; Problem 1
 (defn theta-corpus-joint [theta corpus theta-probs]
   (+ (score-corpus corpus theta) (log2 (first theta-probs))))
 
+(println "Log of Joint Probability:")
 (println (theta-corpus-joint theta1 my-corpus theta-prior))
-;; output: -7.0
+(println "Joint Probability:")
+(println (Math/pow 2 (theta-corpus-joint theta1 my-corpus theta-prior)))
 
-;; Problem 2
 (defn compute-marginal [corpus theta-probs]
   (logsumexp (list (theta-corpus-joint theta1 corpus theta-probs)
                    (theta-corpus-joint theta2 corpus theta-probs))))
 
+(println "Log of Marginal Probability:")
 (println (compute-marginal my-corpus theta-prior))
+(println "Marginal Probability:")
 (println (Math/pow 2 (compute-marginal my-corpus theta-prior)))
-;; output: -6.415037499278844, 0.01171875
 
-;; Problem 3
 (defn compute-conditional-prob [theta corpus theta-probs]
   (- (theta-corpus-joint theta corpus theta-probs) (compute-marginal corpus theta-probs)))
 
+(println "Log of Conditional Probability:")
 (println (compute-conditional-prob theta1 my-corpus theta-prior))
-;; output: -0.5849625007211561
 
-;; Problem 4
 (defn compute-conditional-dist [corpus theta-probs]
   (list-foldr
    (fn [theta rest-theta]
@@ -81,9 +79,8 @@
    '()
    thetas))
 
-;; Problem 5
+(println "Log of Conditional Distribution:")
 (println (compute-conditional-dist my-corpus theta-prior))
-;; output: (-0.5849625007211561 -1.584962500721156)
 
 (defn expo [lst]
   (list-foldr
@@ -93,22 +90,23 @@
    '()
    lst))
 
+(println "Conditional Distribution:")
 (println (expo (compute-conditional-dist my-corpus theta-prior)))
-;; output: (0.6666666666666667 0.33333333333333337)
 
 ;; The distribution of the values over theta is equal to one because the sum of probabilities 
 ;; should be equal to one. The function assigns a greater probability to theta1 because
 ;; my-corpus is a perfect fit to theta1, so based on the corpus it would assign theta1 a greater
 ;; probabiltiy than theta2.
 
-;; Problem 6
 (defn compute-posterior-predictive [observed-corpus new-corpus theta-probs]
   (let [conditional-dist (compute-conditional-dist observed-corpus theta-probs)]
     (compute-marginal new-corpus (expo conditional-dist))))
 
+(println "Log of Posterior Prediction Probability")
 (println (compute-posterior-predictive my-corpus my-corpus theta-prior))
+(println "Log of Posterior Prediction Probability")
 (println (Math/pow 2 (compute-posterior-predictive my-corpus my-corpus theta-prior)))
-;; output: -6.0, 0.015625
+
 ;; This is the marginal probability of the corpus 'my-corpus' based on the new prior probabiltiy distribution,
 ;; (2/3, 1/3) vs the old one (1/2 1/2). This value is greater than the marginal probability found in problem
 ;; 2 because this value assigns higher probability to theta1, and my-corpus is a better representation of 

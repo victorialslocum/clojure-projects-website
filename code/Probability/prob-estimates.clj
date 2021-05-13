@@ -41,14 +41,12 @@
     (cons (sample-categorical vocabulary probabilities)
           (sample-BOW-sentence (- len 1) probabilities))))
 
-;; Problem 7
 (defn sample-BOW-corpus [theta sent-len corpus-len]
   (repeat1 (fn [] (sample-BOW-sentence sent-len theta)) corpus-len))
 
 (println (sample-BOW-corpus theta2 2 2))
 ;; output: a sample corpus that matches the format of my-corpus, such as ((call ishmael) (call me))
 
-;; Problem 8
 (defn sample-theta-corpus [sent-len corpus-len theta-probs]
   (let [theta (sample-categorical thetas theta-probs)]
     (list theta (sample-BOW-corpus theta sent-len corpus-len))))
@@ -57,7 +55,6 @@
 (println theta-corpus)
 ;; output: a theta-corpora pair from thetas and sample-BOW-corpus
 
-;;
 (defn get-theta [theta-corpus]
   (first theta-corpus))
 
@@ -67,7 +64,6 @@
 (defn sample-thetas-corpora [sample-size sent-len corpus-len theta-probs]
   (repeat1 (fn [] (sample-theta-corpus sent-len corpus-len theta-probs)) sample-size))
 
-;; Problem 9
 (defn ref-corpora [sample-size sent-len corpus-len theta-probs]
   (let [org-corpora (sample-thetas-corpora sample-size sent-len corpus-len theta-probs)]
     (list-foldr
@@ -83,13 +79,8 @@
     (/ (apply + value-list) sample-size)))
 
 
-;; Problem 10
-
-
 (println (estimate-corpus-marginal my-corpus 50 2 2 theta-prior))
-;; (println (estimate-corpus-marginal my-corpus 4000 2 2 theta-prior))
-;; sample-size 50: 0, 1/25, 0, 1/50, 1/50
-;; sample-size 4000: 11/800, 41/4000, 41/4000, 27/2000, 51/4000
+(println (estimate-corpus-marginal my-corpus 4000 2 2 theta-prior))
 
 ;; The values for the marginal probability calculated in problem 2 are similar to the counts gained from 
 ;; estimating the marginal probability with a 4000 count sample size, maybe +/- 0.002. However, sampling 
@@ -125,9 +116,6 @@
     (if (= 0 (count cleaned-list))
       0
       (/ (get-count theta cleaned-list 0) (/ (count cleaned-list) 2)))))
-
-
-;; Problem 12
 
 
 (println (rejection-sampler theta1 my-corpus 100 2 2 theta-prior))

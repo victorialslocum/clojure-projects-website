@@ -1,4 +1,4 @@
-;;
+;; This calculates the joint, marginal, conditional, and posterior predictions probabilities of a corpus. 
 
 ;;
 (def vocabulary '(call me ishmael))
@@ -104,7 +104,7 @@
 
 (println "Log of Posterior Prediction Probability")
 (println (compute-posterior-predictive my-corpus my-corpus theta-prior))
-(println "Log of Posterior Prediction Probability")
+(println "Posterior Prediction Probability")
 (println (Math/pow 2 (compute-posterior-predictive my-corpus my-corpus theta-prior)))
 
 ;; This is the marginal probability of the corpus 'my-corpus' based on the new prior probabiltiy distribution,

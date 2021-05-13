@@ -1,4 +1,4 @@
-;;
+;; This does the same thing as prob-calcs but through estimation instead of actual calculations
 
 ;;
 (def vocabulary '(call me ishmael))
@@ -78,7 +78,6 @@
         value-list (list-foldr (fn [input rest] (cons (if (= input corpus) 1 0) rest)) '() ref-corpora)]
     (/ (apply + value-list) sample-size)))
 
-
 (println (estimate-corpus-marginal my-corpus 50 2 2 theta-prior))
 (println (estimate-corpus-marginal my-corpus 4000 2 2 theta-prior))
 
@@ -116,7 +115,6 @@
     (if (= 0 (count cleaned-list))
       0
       (/ (get-count theta cleaned-list 0) (/ (count cleaned-list) 2)))))
-
 
 (println (rejection-sampler theta1 my-corpus 100 2 2 theta-prior))
 ;; output: a lot of 0s and two 1/2s and one 1
